@@ -52,4 +52,7 @@ export const register = async (req: Request, res: Response) => {
  * Login a user
  */
 export const login = async (req: Request, res: Response) => {
+    const { email, password } = req.body
+
+    const user = await get
 }
