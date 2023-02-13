@@ -20,6 +20,11 @@ router.get('/', (req, res) => {
 router.use('/register', user)
 
 /**
+ * POST /login
+ */
+router.use('/login', user)
+
+/**
  * [EXAMPLE] /resource
  */
 // router.use('/resource', resource)
