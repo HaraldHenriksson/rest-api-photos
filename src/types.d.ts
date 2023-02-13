@@ -1,6 +1,7 @@
 export type JwtPayload = {
 	sub: number,
-	name: string,
+	first_name: string,
+    last_name: string,
 	email: string,
 	iat?: number,
 	exp?: number,

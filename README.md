@@ -4,16 +4,6 @@
 - All received data **must** be sanitized and validated.
 - All endpoints for photos and albums **must** require authentication.
 
-## For G
-
-- HTTP Basic Authentication must be used.
-
-## For VG
-
-- JSON Web Tokens must be used.
-- Refresh of access token must work.
-- As well as the sections below marked **[VG]**.
-
 # Route Map
 
 ## Albums

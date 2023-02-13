@@ -6,6 +6,7 @@ import prisma from '../prisma'
 import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
 import { JwtPayload } from '../types'
+import { getUserByEmail } from '../services/user_services'
 
 const debug = Debug('prisma-books:user_controller')
 
@@ -54,5 +55,55 @@ export const register = async (req: Request, res: Response) => {
 export const login = async (req: Request, res: Response) => {
     const { email, password } = req.body
 
-    const user = await get
+    const user = await getUserByEmail(email)
+    if (!user) {
+        return res.status(401).send({
+			status: "fail",
+			message: "Authorization required",
+		})
+    }
+
+    const result = await bcrypt.compare(password, user.password)
+    if (!result) {
+        return res.status(401).send({
+			status: "fail",
+			message: "Authorization required",
+		})
+    }
+
+    const payload: JwtPayload = {
+        sub: user.id,
+        first_name: user.first_name,
+        last_name: user.last_name,
+        email: user.email
+    }
+
+    if (!process.env.ACCESS_TOKEN_SECRET) {
+        return res.status(500).send({
+			status: "Error",
+			message: "No access token secret defined",
+		})
+    }
+    const access_token = jwt.sign(payload, process.env.ACCESS_TOKEN_SECRET, {
+		expiresIn: process.env.ACCESS_TOKEN_LIFETIME || '3h',
+	})
+
+    if (!process.env.REFRESH_TOKEN_SECRET) {
+		return res.status(500).send({
+			status: "Error",
+			message: "No refresh token secret defined",
+		})
+	}
+
+    const refresh_token = jwt.sign(payload, process.env.REFRESH_TOKEN_SECRET, {
+		expiresIn: process.env.REFRESH_TOKEN_LIFETIME || '1d',
+	})
+
+    res.send({
+        status: "Success",
+        data: {
+            access_token,
+            refresh_token,
+        }
+    })
 }

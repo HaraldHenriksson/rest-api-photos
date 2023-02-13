@@ -1,4 +1,5 @@
 import express from "express"
+import { login } from "../controllers/user_controller"
 import user from './user'
 import resource from './_router'
 
@@ -22,7 +23,7 @@ router.use('/register', user)
 /**
  * POST /login
  */
-router.use('/login', user)
+router.use('/login', login)
 
 /**
  * [EXAMPLE] /resource
