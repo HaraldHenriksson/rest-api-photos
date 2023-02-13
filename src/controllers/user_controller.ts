@@ -4,6 +4,8 @@ import { validationResult } from 'express-validator'
 //import { createAuthor, getAuthors } from '../services/author_service'
 import prisma from '../prisma'
 
+const debug = Debug('prisma-books:user_controller')
+
 /**
  * Create a user
  */
@@ -21,8 +23,8 @@ export const store = async (req: Request, res: Response) => {
             data: {
                 email: req.body.email,
                 password: req.body.password,
-                first_name: req.body.first_name,
-                last_name: req.body.last_name,
+                firstName: req.body.firstName,
+                lastName: req.body.lastName,
             }
         })
 
@@ -30,8 +32,8 @@ export const store = async (req: Request, res: Response) => {
             status: "success",
             data: {
                 email: user?.email,
-                first_name: user?.first_name,
-                last_name: user?.last_name,
+                first_name: user?.firstName,
+                last_name: user?.lastName,
             }
         })
 
