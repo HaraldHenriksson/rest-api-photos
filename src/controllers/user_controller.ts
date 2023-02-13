@@ -107,3 +107,54 @@ export const login = async (req: Request, res: Response) => {
         }
     })
 }
+
+/**
+ * Refresh the token 
+ */
+export const refresh = (req: Request, res: Response) => {
+    if (!req.headers.authorization) {
+        return res.status(401).send({
+			status: "fail",
+			data: "Authorization required",
+		})
+    }
+
+    const [authSchema, token] = req.headers.authorization.split(" ")
+
+    if (authSchema.toLocaleLowerCase() !== "bearer") {
+        return res.status(401).send({
+			status: "fail",
+			data: "Authorization required",
+		})
+    }
+
+    try {
+		const payload = (jwt.verify(token, process.env.REFRESH_TOKEN_SECRET || "") as unknown) as JwtPayload
+
+        delete payload.iat
+		delete payload.exp
+
+        if (!process.env.ACCESS_TOKEN_SECRET) {
+            return res.status(500).send({
+				status: "error",
+				message: "No access token secret is defined",
+			})
+        }
+
+        const access_token = jwt.sign(payload, process.env.ACCESS_TOKEN_SECRET, {
+			expiresIn: process.env.ACCESS_TOKEN_LIFETIME || '4h',
+		})
+
+        res.send({
+			status: "success",
+			data: {
+				access_token,
+			},
+		})
+    } catch (err) {
+        return res.status(401).send({
+			status: "fail",
+			data: "Authorization required",
+		})
+    }
+}
