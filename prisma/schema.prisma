@@ -26,11 +26,11 @@ model Photo {
 }
 
 model User {
-  id        Int     @id @default(autoincrement()) @db.UnsignedInt
-  email     String  @unique
-  password  String
-  firstName String
-  lastName  String
-  albums    Album[]
-  photos    Photo[]
+  id         Int     @id @default(autoincrement()) @db.UnsignedInt
+  email      String  @unique
+  password   String
+  first_name String
+  last_name  String
+  albums     Album[]
+  photos     Photo[]
 }

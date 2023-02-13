@@ -1,4 +1,5 @@
 import express from "express"
+import user from './user'
 import resource from './_router'
 
 // instantiate a new router
@@ -12,6 +13,11 @@ router.get('/', (req, res) => {
 		message: "I AM API, BEEP BOOP",
 	})
 })
+
+/**
+ * POST /register
+ */
+router.use('/register', user)
 
 /**
  * [EXAMPLE] /resource

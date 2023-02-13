@@ -8,4 +8,6 @@ const router = express.Router()
 /**
  * POST /user 
  */
-router.post('/register', userRules, store)
+router.post('/', userRules, store)
+
+export default router

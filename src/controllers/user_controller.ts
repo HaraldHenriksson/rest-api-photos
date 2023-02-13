@@ -23,8 +23,8 @@ export const store = async (req: Request, res: Response) => {
             data: {
                 email: req.body.email,
                 password: req.body.password,
-                firstName: req.body.firstName,
-                lastName: req.body.lastName,
+                first_name: req.body.first_name,
+                last_name: req.body.last_name,
             }
         })
 
@@ -32,8 +32,8 @@ export const store = async (req: Request, res: Response) => {
             status: "success",
             data: {
                 email: user?.email,
-                first_name: user?.firstName,
-                last_name: user?.lastName,
+                first_name: user?.first_name,
+                last_name: user?.last_name,
             }
         })
 
