@@ -7,7 +7,7 @@ export const createPhoto = async (data: CreatePhoto) => {
             title: data.title,
             url: data.url,
             comment: data.comment,
-            userId: data.userId
+             userId: data.userId
         }
     })
 }

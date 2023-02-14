@@ -1,11 +1,15 @@
 import { matchedData, validationResult } from "express-validator"
 import { Request, Response } from 'express'
+import jwt from 'jsonwebtoken'
+import { JwtPayload } from '../types'
 import prisma from '../prisma'
 import { createPhoto } from "../services/photo_services"
+import { validateToken } from "../../middlewares/auth/jwt"
 
 /**
  * POST /photos
  */
+
 export const postPhoto = async (req: Request, res: Response) => {
     const validationErrors = validationResult(req)
 	if (!validationErrors.isEmpty()) {
@@ -19,19 +23,18 @@ export const postPhoto = async (req: Request, res: Response) => {
 
     
     try {
-        const photo = await createPhoto({
-            title: validatedData.title,
-            url: validatedData.url,
-            comment: validatedData.comment,
-            userId: Number(validatedData.userId)
-        })
-
-        res.send({
-			status: "success",
-			data: photo,
-		})
-
-    } catch (err) {
-		res.status(500).send({ status: "error", message: "Something went wrong" })
+          const photo = await createPhoto({
+            title: req.body.title,
+            url: req.body.url,
+            comment: req.body.comment,
+            userId: req.body.userId
+          })
+    
+          res.send({
+            status: "success",
+            data: photo,
+          })
+      } catch (err) {
+        res.status(500).send({ status: "error", message: "Something went wrong" })
+      }
     }
-}
