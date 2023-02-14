@@ -27,7 +27,7 @@ export const postPhoto = async (req: Request, res: Response) => {
             title: req.body.title,
             url: req.body.url,
             comment: req.body.comment,
-            userId: req.body.userId
+            userId: req.token!.sub
           })
     
           res.send({
