@@ -38,3 +38,34 @@ export const postPhoto = async (req: Request, res: Response) => {
         res.status(500).send({ status: "error", message: "Something went wrong" })
       }
     }
+
+
+/**
+ * GET /photos
+ */
+export const getPhotos = async (req: Request, res: Response) => {
+    try {
+        const photo = await prisma.photo.findMany({
+            where: {
+                userId: req.token!.sub
+            }
+        })
+
+        const response = photo.map(photo => {
+            return {
+              id: photo.id,
+              title: photo.title,
+              url: photo.url,
+              comment: photo.comment,
+            }
+        })
+
+
+        res.send({
+            status: "success",
+            data: response
+        })
+    } catch (err) {
+        res.status(500).send({ message: "Something went wrong"})
+    }
+}

@@ -1,6 +1,6 @@
 import express from "express"
 import { validateToken } from "../../middlewares/auth/jwt"
-import { postPhoto } from "../controllers/photo_controller"
+import { getPhotos, postPhoto } from "../controllers/photo_controller"
 import { login, refresh } from "../controllers/user_controller"
 import user from './user'
 import resource from './_router'
@@ -36,6 +36,11 @@ router.post('/refresh', refresh)
  * POST /photo
  */
 router.post('/photo', validateToken, postPhoto)
+
+/**
+ * GET /photos
+ */
+router.get('/photos', validateToken, getPhotos)
 
 /**
  * [EXAMPLE] /resource

@@ -1,5 +1,5 @@
 import prisma from '../prisma'
-import { CreatePhoto } from '../types'
+import { CreatePhoto, JwtPayload } from '../types'
 
 export const createPhoto = async (data: CreatePhoto) => {
     return await prisma.photo.create({
