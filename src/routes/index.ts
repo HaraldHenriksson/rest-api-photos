@@ -1,4 +1,5 @@
 import express from "express"
+import { postPhoto } from "../controllers/photo_controller"
 import { login, refresh } from "../controllers/user_controller"
 import user from './user'
 import resource from './_router'
@@ -29,6 +30,11 @@ router.use('/login', login)
  * POST /refresh
  */
 router.post('/refresh', refresh)
+
+/**
+ * POST /photo
+ */
+router.post('/photos', postPhoto)
 
 /**
  * [EXAMPLE] /resource

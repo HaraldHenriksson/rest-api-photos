@@ -6,3 +6,10 @@ export type JwtPayload = {
 	iat?: number,
 	exp?: number,
 }
+
+export type CreatePhoto = {
+    userId: number,
+    title: string,
+    url: string,
+    comment: string,
+}
