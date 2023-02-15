@@ -37,6 +37,6 @@ router.post('/:albumId/photos', validateToken, addPhoto)
 /**
  * DELETE //album/:albumId/photos
  */
-router.delete('/:albumId/photos', validateToken, removePhoto)
+router.patch('/:albumId/photos', validateToken, removePhoto)
 
 export default router
