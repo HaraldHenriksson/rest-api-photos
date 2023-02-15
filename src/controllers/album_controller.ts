@@ -91,3 +91,39 @@ export const getAlbumsWithId = async (req: Request, res: Response) => {
             res.status(500).send({ message: "Something went wrong"})
     }
 }
+
+/**
+ * PATCH /albums/:albumId
+ */
+export const patchAlbum = async (req: Request, res: Response) => {
+    const albumId = Number(req.params.albumId)
+
+    try {
+        const albums = await prisma.album.findMany({
+            where: {
+                userId: req.token!.sub
+            }
+        })
+
+        const album = albums.find(album => album.id === albumId)
+
+        if (!album) {
+            return res.status(404).send({ mesage: "Album with the given ID does not exist"})
+        }
+
+        const updatedAlbum = await prisma.album.update({
+            where: {
+                id: albumId
+            },
+            data: req.body
+        })
+
+        res.send({
+            status: "succes",
+            data: updatedAlbum
+        })
+
+    } catch (err) {
+		return res.status(500).send({ message: "Something went wrong" })
+	}
+}
