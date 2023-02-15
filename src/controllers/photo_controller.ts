@@ -135,3 +135,37 @@ export const patchPhoto = async (req: Request, res: Response) => {
 		return res.status(500).send({ message: "Something went wrong" })
 	}
 }
+
+/**
+ * DELETE /photos/:photoId
+ */
+export const destroy = async (req: Request, res: Response) => {
+    const photoId = Number(req.params.photoId)
+
+    try {
+        const photos = await prisma.photo.findMany({
+            where: {
+                userId: req.token!.sub
+            }
+        })
+
+        const photo = photos.find(photo => photo.id === photoId)
+
+        if (!photo) {
+            return res.status(404).send({ message: "Photo with the given ID does not exist" })
+        }
+
+        const deletedPhoto = await prisma.photo.delete({
+            where: {
+                id: photoId,
+            }
+        })
+
+        res.send({
+            status: "success",
+            data: null
+        })
+    } catch (err) {
+        res.status(500).send({ message: "Something went wrong"})
+    }
+}
