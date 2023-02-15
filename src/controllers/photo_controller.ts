@@ -69,3 +69,26 @@ export const getPhotos = async (req: Request, res: Response) => {
         res.status(500).send({ message: "Something went wrong"})
     }
 }
+
+/**
+ * GET /photos/:photoId
+ */
+export const getPhotoWithId = async (req: Request, res: Response) => {
+    const photoId = Number(req.params.photoId)
+
+    try {
+        const photo = await prisma.photo.findUnique({
+            where: {
+                id: photoId
+            }
+        })
+        
+        res.send({
+            status: "success",
+            data: photo
+            })
+
+    } catch (err) {
+        res.status(500).send({ message: "Something went wrong"})
+    }
+}

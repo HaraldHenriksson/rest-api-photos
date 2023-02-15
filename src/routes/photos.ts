@@ -1,12 +1,22 @@
 import express from "express"
-import { postPhoto } from "../controllers/photo_controller"
+import { validateToken } from "../../middlewares/auth/jwt"
+import { getPhotos, getPhotoWithId, postPhoto } from "../controllers/photo_controller"
 
 const router = express.Router()
 
 /**
  * POST /photo
  */
+router.post('/', validateToken, postPhoto)
 
-router.post('/', postPhoto)
+/**
+ * GET /photos
+ */
+router.get('/', validateToken, getPhotos)
+
+/**
+ * GET /photo/:id
+ */
+router.get('/:id', validateToken, getPhotoWithId)
 
 export default router

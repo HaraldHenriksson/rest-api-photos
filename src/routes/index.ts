@@ -2,6 +2,7 @@ import express from "express"
 import { validateToken } from "../../middlewares/auth/jwt"
 import { getPhotos, postPhoto } from "../controllers/photo_controller"
 import { login, refresh } from "../controllers/user_controller"
+import photos from "./photos"
 import user from './user'
 import resource from './_router'
 
@@ -23,6 +24,11 @@ router.get('/', (req, res) => {
 router.use('/register', user)
 
 /**
+ * photos
+ */
+router.use('/photos', photos)
+
+/**
  * POST /login
  */
 router.use('/login', login)
@@ -32,15 +38,7 @@ router.use('/login', login)
  */
 router.post('/refresh', refresh)
 
-/**
- * POST /photo
- */
-router.post('/photo', validateToken, postPhoto)
 
-/**
- * GET /photos
- */
-router.get('/photos', validateToken, getPhotos)
 
 /**
  * [EXAMPLE] /resource
