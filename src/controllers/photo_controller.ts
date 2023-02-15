@@ -80,6 +80,14 @@ export const getPhotos = async (req: Request, res: Response) => {
  * GET /photos/:photoId
  */
 export const getPhotoWithId = async (req: Request, res: Response) => {
+    const validationErrors = validationResult(req)
+	if (!validationErrors.isEmpty()) {
+		return res.status(400).send({
+			status: "fail",
+			data: validationErrors.array(),
+		})
+	}
+    
     const photoId = Number(req.params.photoId)
 
     try {
@@ -110,6 +118,14 @@ export const getPhotoWithId = async (req: Request, res: Response) => {
  * PATCH /photos/:photoId
  */
 export const patchPhoto = async (req: Request, res: Response) => {
+    const validationErrors = validationResult(req)
+	if (!validationErrors.isEmpty()) {
+		return res.status(400).send({
+			status: "fail",
+			data: validationErrors.array(),
+		})
+	}
+
     const photoId = Number(req.params.photoId)
 
     try {
