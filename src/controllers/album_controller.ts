@@ -127,3 +127,38 @@ export const patchAlbum = async (req: Request, res: Response) => {
 		return res.status(500).send({ message: "Something went wrong" })
 	}
 }
+
+/**
+ * DELETe /albums/:albumId
+ */
+export const destroy = async (req: Request, res: Response) => {
+    const albumId = Number(req.params.albumId)
+
+    try {
+        const albums = await prisma.album.findMany({
+            where: {
+                userId: req.token!.sub
+            }
+        })
+
+        const album = albums.find(album => album.id === albumId)
+
+        if (!album) {
+            return res.status(404).send({ message: "Photo with given ID does not exist"})
+        }
+
+        const deletedAlbum = await prisma.album.delete({
+            where: {
+                id: albumId,
+            }
+        })
+
+        res.send({
+            status: "success",
+            data: null
+        })
+        
+    } catch (err) {
+        res.status(500).send({ message: "Something went wrong"})
+    }
+}
