@@ -99,3 +99,39 @@ export const getPhotoWithId = async (req: Request, res: Response) => {
         res.status(500).send({ message: "Something went wrong"})
     }
 }
+
+/**
+ * PATCH /photos/:photoId
+ */
+export const patchPhoto = async (req: Request, res: Response) => {
+    const photoId = Number(req.params.photoId)
+
+    try {
+        const photos = await prisma.photo.findMany({
+            where: {
+                userId: req.token!.sub
+            }
+        })
+
+        const photo = photos.find(photo => photo.id === photoId)
+
+        if (!photo) {
+            return res.status(404).send({ message: "Photo with the given ID does not exist" })
+        }
+
+        const updatedPhoto = await prisma.photo.update({
+            where: {
+                id: photoId
+            },
+            data: req.body
+        })
+
+        res.send({
+            status: "success",
+            data: updatedPhoto
+        })
+
+    } catch (err) {
+		return res.status(500).send({ message: "Something went wrong" })
+	}
+}
