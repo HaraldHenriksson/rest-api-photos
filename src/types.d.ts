@@ -13,3 +13,8 @@ export type CreatePhoto = {
     url: string,
     comment: string,
 }
+
+export type CreateAlbum = {
+    userId: number,
+    title: string
+}
