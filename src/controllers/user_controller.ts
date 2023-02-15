@@ -53,6 +53,15 @@ export const register = async (req: Request, res: Response) => {
  * Login a user
  */
 export const login = async (req: Request, res: Response) => {
+
+    const validationErrors = validationResult(req)
+    if (!validationErrors.isEmpty()) {
+        return res.status(400).send({
+            status: "fail",
+            data: validationErrors.array()
+        })
+    }
+    
     const { email, password } = req.body
 
     const user = await getUserByEmail(email)
