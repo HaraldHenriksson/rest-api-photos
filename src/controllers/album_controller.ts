@@ -45,10 +45,16 @@ export const getAlbums = async (req: Request, res: Response) => {
             }
         })
 
-        res.send({
+        if (album.length === 0) {
+            res.send({
+                status: "success",
+                message: "The user does not have any albums."
+            })
+        } else { res.send({
             status: "succes",
             data: album,
         })
+    }
     } catch (err) {
         res.status(500).send({ message: "Something went wrong"})
     }
