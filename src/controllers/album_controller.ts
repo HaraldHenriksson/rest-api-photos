@@ -168,19 +168,6 @@ export const destroy = async (req: Request, res: Response) => {
  */
 export const addPhoto = async (req: Request, res: Response) => {
     console.log("photo to connect:", req.body.photo_id)
-    let photo_id: { id: number }[] = []
-
-    if (Array.isArray(req.body.photoId)) {
-        photo_id = req.body.photo_id.map((photo_id: number) => {
-            return {
-                id: photo_id
-            }
-        })
-    } else {
-        photo_id = [{ id: req.body.photo_id }]
-    }
-
-    console.log("photos after map:", photo_id)
 
     try {
         const result = await prisma.album.update({
@@ -189,19 +176,21 @@ export const addPhoto = async (req: Request, res: Response) => {
             },
             data: {
                 photos: {
-                    connect: photo_id
+                    connect: {
+                        id: req.body.photo_id
+                    }
                 }
             },
             include: {
                 photos: true,
             }
         })
-
+        
         res.send({
             status: "success",
             data: null
         })
-        
+
     } catch (err) {
         res.status(500).send({ status: "error", message: "something went wrong"})
     }
