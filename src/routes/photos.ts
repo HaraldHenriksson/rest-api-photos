@@ -17,6 +17,6 @@ router.get('/', validateToken, getPhotos)
 /**
  * GET /photo/:id
  */
-router.get('/:id', validateToken, getPhotoWithId)
+router.get('/:photoId', validateToken, getPhotoWithId)
 
 export default router

@@ -77,11 +77,18 @@ export const getPhotoWithId = async (req: Request, res: Response) => {
     const photoId = Number(req.params.photoId)
 
     try {
-        const photo = await prisma.photo.findUnique({
+        const photos = await prisma.photo.findMany({
             where: {
-                id: photoId
+                userId: req.token!.sub
             }
         })
+        const photo = photos.find(photo => photo.id === photoId)
+
+        if (!photo) {
+            return res.status(404).send({
+                message: "Photo with the given ID does not exist."
+            })
+        }
         
         res.send({
             status: "success",
