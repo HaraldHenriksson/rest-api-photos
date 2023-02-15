@@ -70,6 +70,9 @@ export const getAlbumsWithId = async (req: Request, res: Response) => {
         const albums = await prisma.album.findMany({
             where: {
                 userId: req.token!.sub
+            },
+            include: {
+                photos: true
             }
         })
         const album = albums.find(album => album.id === albumId)
