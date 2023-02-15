@@ -167,8 +167,13 @@ export const destroy = async (req: Request, res: Response) => {
  * Link a photo to an album 
  */
 export const addPhoto = async (req: Request, res: Response) => {
-    const photo_id = req.body.photo_id.map((photo_id: number) => ({ 
-        id: photo_id }))
+
+    let photo_id;
+    if (Array.isArray(req.body.photo_id)) {
+        photo_id = req.body.photo_id.map((photo_id: any) => ({ id: photo_id }));
+    } else {
+        photo_id = [{ id: req.body.photo_id }];
+    }
 
     try {
         const result = await prisma.album.update({
