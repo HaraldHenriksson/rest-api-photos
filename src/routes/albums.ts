@@ -1,6 +1,6 @@
 import express from "express"
 import { validateToken } from "../../middlewares/auth/jwt"
-import { destroy, getAlbums, getAlbumsWithId, patchAlbum, postAlbum } from "../controllers/album_controller"
+import { addPhoto, destroy, getAlbums, getAlbumsWithId, patchAlbum, postAlbum } from "../controllers/album_controller"
 
 const router = express.Router()
 
@@ -28,5 +28,10 @@ router.patch('/:albumId', validateToken, patchAlbum)
  * DELETE /palbum/:photoId
  */
 router.delete('/:albumId', validateToken, destroy)
+
+/**
+ * POST /album/:albumId/photos
+ */
+router.post('/:albumId/photos', validateToken, addPhoto)
 
 export default router
