@@ -1,6 +1,6 @@
 import express from "express"
 import { validateToken } from "../../middlewares/auth/jwt"
-import { postAlbum } from "../controllers/album_controller"
+import { getAlbums, postAlbum } from "../controllers/album_controller"
 
 const router = express.Router()
 
@@ -12,7 +12,7 @@ router.post('/', validateToken, postAlbum)
 /**
  * GET /album
  */
-router.get('/', validateToken)
+router.get('/', validateToken, getAlbums)
 
 /**
  * GET /album/:albumId

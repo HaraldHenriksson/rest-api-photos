@@ -33,3 +33,23 @@ export const postAlbum = async (req: Request, res: Response) => {
       }
 
 }
+
+/**
+ * Get all users albums 
+ */
+export const getAlbums = async (req: Request, res: Response) => {
+    try {
+        const album = await prisma.album.findMany({
+            where: {
+                userId: req.token!.sub
+            }
+        })
+
+        res.send({
+            status: "succes",
+            data: album,
+        })
+    } catch (err) {
+        res.status(500).send({ message: "Something went wrong"})
+    }
+}
