@@ -203,3 +203,29 @@ export const addPhoto = async (req: Request, res: Response) => {
 /**
  * Unlink a photo from album
  */
+export const removePhoto = async (req: Request, res: Response) => {
+    const photo_id = req.body.photo_id;
+
+    try {
+        const result = await prisma.album.update({
+            where: {
+                id: Number(req.params.albumId),
+            },
+            data: {
+                photos: {
+                    disconnect: [{
+                        id: photo_id
+                    }]
+                }
+            }
+        })
+        
+        res.send({
+            status: "success",
+            data: null
+        })
+        
+    } catch (err) {
+        res.status(500).send({ status: "error", message: "something went wrong"})
+    }
+}
