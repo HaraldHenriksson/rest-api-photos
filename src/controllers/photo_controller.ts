@@ -60,11 +60,17 @@ export const getPhotos = async (req: Request, res: Response) => {
             }
         })
 
-
-        res.send({
+        if (photo.length === 0) {
+            res.send({
+                status: "success",
+                message: "The user does not have any photos."
+            })
+        } else {res.send({
             status: "success",
             data: response
         })
+    }
+        
     } catch (err) {
         res.status(500).send({ message: "Something went wrong"})
     }
