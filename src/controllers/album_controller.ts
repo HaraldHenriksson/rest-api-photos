@@ -59,3 +59,32 @@ export const getAlbums = async (req: Request, res: Response) => {
         res.status(500).send({ message: "Something went wrong"})
     }
 }
+
+/**
+ * Get albums with album id 
+ */
+export const getAlbumsWithId = async (req: Request, res: Response) => {
+    const albumId = Number(req.params.albumId)
+
+    try {
+        const albums = await prisma.album.findMany({
+            where: {
+                userId: req.token!.sub
+            }
+        })
+        const album = albums.find(album => album.id === albumId)
+
+        if (!album) {
+            return res.status(404).send({
+                message: "Album with the given ID does not exist."
+            })
+        }
+
+        res.send({
+            status: "success",
+            data: album
+            })
+    } catch (err) {
+            res.status(500).send({ message: "Something went wrong"})
+    }
+}
