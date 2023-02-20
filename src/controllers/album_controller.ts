@@ -9,7 +9,7 @@ import prisma from '../prisma'
  * Create an album 
  */
 export const postAlbum = async (req: Request, res: Response) => {
-    
+
     const validationErrors = validationResult(req)
 	if (!validationErrors.isEmpty()) {
 		return res.status(400).send({
@@ -155,6 +155,34 @@ export const destroy = async (req: Request, res: Response) => {
         if (!album) {
             return res.status(404).send({ message: "Photo with given ID does not exist"})
         }
+
+        const photos = await prisma.photo.findMany({
+            where: {
+                albums: {
+                    some: {
+                        id: albumId
+                    }
+                }
+            }
+        })
+        
+        const disconnect = photos.map(async photo => {
+            await prisma.photo.update({
+                where: {
+                    id: photo.id
+                },
+                data: {
+                    albums: {
+                        disconnect: {
+                            id: albumId
+                        }
+                    }
+                }
+            })
+        })
+        
+        // wait for all disconnect before moving on 
+        await Promise.all(disconnect)
 
         const deletedAlbum = await prisma.album.delete({
             where: {
