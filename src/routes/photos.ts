@@ -1,6 +1,6 @@
 import express from "express"
 import { validateToken } from "../../middlewares/auth/jwt"
-import { patchPhotoRules, photoRules, postPhotoRules } from "../../validations/photo_rules"
+import { patchPhotoRules, postPhotoRules } from "../../validations/photo_rules"
 import { destroy, getPhotos, getPhotoWithId, patchPhoto, postPhoto } from "../controllers/photo_controller"
 
 const router = express.Router()
@@ -18,7 +18,7 @@ router.get('/', validateToken, getPhotos)
 /**
  * GET /photo/:id
  */
-router.get('/:photoId', photoRules, validateToken, getPhotoWithId)
+router.get('/:photoId', validateToken, getPhotoWithId)
 
 /**
  * PATCH /photos/:photoId

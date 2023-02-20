@@ -9,6 +9,7 @@ import prisma from '../prisma'
  * Create an album 
  */
 export const postAlbum = async (req: Request, res: Response) => {
+    
     const validationErrors = validationResult(req)
 	if (!validationErrors.isEmpty()) {
 		return res.status(400).send({
@@ -96,6 +97,14 @@ export const getAlbumsWithId = async (req: Request, res: Response) => {
  * PATCH /albums/:albumId
  */
 export const patchAlbum = async (req: Request, res: Response) => {
+
+    const validationErrors = validationResult(req)
+	if (!validationErrors.isEmpty()) {
+		return res.status(400).send({
+			status: "fail",
+			data: validationErrors.array(),
+		})
+	}
     const albumId = Number(req.params.albumId)
 
     try {
@@ -167,6 +176,14 @@ export const destroy = async (req: Request, res: Response) => {
  * Link a photo to an album 
  */
 export const addPhoto = async (req: Request, res: Response) => {
+
+    const validationErrors = validationResult(req)
+	if (!validationErrors.isEmpty()) {
+		return res.status(400).send({
+			status: "fail",
+			data: validationErrors.array(),
+		})
+	}
 
     let photo_id;
     if (Array.isArray(req.body.photo_id)) {

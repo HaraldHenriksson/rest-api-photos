@@ -11,6 +11,7 @@ import { validateToken } from "../../middlewares/auth/jwt"
  */
 
 export const postPhoto = async (req: Request, res: Response) => {
+    
     const validationErrors = validationResult(req)
 	if (!validationErrors.isEmpty()) {
 		return res.status(400).send({
@@ -118,6 +119,7 @@ export const getPhotoWithId = async (req: Request, res: Response) => {
  * PATCH /photos/:photoId
  */
 export const patchPhoto = async (req: Request, res: Response) => {
+
     const validationErrors = validationResult(req)
 	if (!validationErrors.isEmpty()) {
 		return res.status(400).send({
