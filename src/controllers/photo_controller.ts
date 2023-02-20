@@ -5,13 +5,14 @@ import { JwtPayload } from '../types'
 import prisma from '../prisma'
 import { createPhoto } from "../services/photo_services"
 import { validateToken } from "../../middlewares/auth/jwt"
+import { removePhoto } from "./album_controller"
 
 /**
  * POST /photos
  */
 
 export const postPhoto = async (req: Request, res: Response) => {
-    
+
     const validationErrors = validationResult(req)
 	if (!validationErrors.isEmpty()) {
 		return res.status(400).send({
@@ -178,6 +179,34 @@ export const destroy = async (req: Request, res: Response) => {
         if (!photo) {
             return res.status(404).send({ message: "Photo with the given ID does not exist" })
         }
+
+        const albums = await prisma.album.findMany({
+            where: {
+                photos: {
+                    some: {
+                        id: photoId
+                    }
+                }
+            }
+        })
+
+        const disconnect = albums.map(album => 
+            prisma.album.update({
+                where: {
+                    id: album.id
+                },
+                data: {
+                    photos: {
+                        disconnect: [{
+                            id: photoId
+                        }]
+                    }
+                }
+            })
+        )
+
+        // Wait for all disconnect before moving on
+        await Promise.all(disconnect)
 
         const deletedPhoto = await prisma.photo.delete({
             where: {
