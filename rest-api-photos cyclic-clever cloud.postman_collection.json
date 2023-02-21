@@ -1,0 +1,597 @@
+{
+	"info": {
+		"_postman_id": "a2fded9c-c473-4cad-a098-abcfd1066c90",
+		"name": "rest-api-photos cyclic/clever cloud",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24955540"
+	},
+	"item": [
+		{
+			"name": "POST /registrer",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"email\": \"harald@espinagar.se\",\n  \"password\": \"mittlösen\",\n  \"first_name\": \"harald\",\n  \"last_name\": \"henriksson\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://brainy-crab-cowboy-boots.cyclic.app/register",
+					"protocol": "https",
+					"host": [
+						"brainy-crab-cowboy-boots",
+						"cyclic",
+						"app"
+					],
+					"path": [
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST /login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"email\": \"harald@espinagar.se\",\n  \"password\": \"mittlösen\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://brainy-crab-cowboy-boots.cyclic.app/login",
+					"protocol": "https",
+					"host": [
+						"brainy-crab-cowboy-boots",
+						"cyclic",
+						"app"
+					],
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST /refresh",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsImZpcnN0X25hbWUiOiJoYXJhbGQiLCJsYXN0X25hbWUiOiJoZW5yaWtzc29uIiwiZW1haWwiOiJoYXJhbGRAZXNwaW5hZ2FyLnNlIiwiaWF0IjoxNjc2OTg3NjA5LCJleHAiOjE2NzcwMDIwMDl9.ywdd6tezpqC90zGrtAln1nzWKqeK3NLdSc4HzZwUWKE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://brainy-crab-cowboy-boots.cyclic.app/refresh",
+					"protocol": "https",
+					"host": [
+						"brainy-crab-cowboy-boots",
+						"cyclic",
+						"app"
+					],
+					"path": [
+						"refresh"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST /photo",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsImZpcnN0X25hbWUiOiJoYXJhbGQiLCJsYXN0X25hbWUiOiJoZW5yaWtzc29uIiwiZW1haWwiOiJoYXJhbGRAZXNwaW5hZ2FyLnNlIiwiaWF0IjoxNjc2OTg3NjI1LCJleHAiOjE2NzcwMDIwMjV9.QMN5N6ibWWAGpcAV8tTYsxJkgR6J8E-RHUyrdotoW4U",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"title\": \"Confetti asdf #1\",\n  \"url\": \"https://images.unsplash.com/photo-1492684223066-81342ee5ff30\",\n  \"comment\": \"Confetti\",\n  \"userId\": 3\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://brainy-crab-cowboy-boots.cyclic.app/photos",
+					"protocol": "https",
+					"host": [
+						"brainy-crab-cowboy-boots",
+						"cyclic",
+						"app"
+					],
+					"path": [
+						"photos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /photos",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsImZpcnN0X25hbWUiOiJoYXJhbGQiLCJsYXN0X25hbWUiOiJoZW5yaWtzc29uIiwiZW1haWwiOiJoYXJhbGRAZXNwaW5hZ2FyLnNlIiwiaWF0IjoxNjc2OTg3NjI1LCJleHAiOjE2NzcwMDIwMjV9.QMN5N6ibWWAGpcAV8tTYsxJkgR6J8E-RHUyrdotoW4U",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"title\": \"Confetti Photo #1\",\n  \"url\": \"https://images.unsplash.com/photo-1492684223066-81342ee5ff30\",\n  \"comment\": \"Confetti\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://brainy-crab-cowboy-boots.cyclic.app/photos",
+					"protocol": "https",
+					"host": [
+						"brainy-crab-cowboy-boots",
+						"cyclic",
+						"app"
+					],
+					"path": [
+						"photos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /photos/:photoId",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsImZpcnN0X25hbWUiOiJoYXJhbGQiLCJsYXN0X25hbWUiOiJoZW5yaWtzc29uIiwiZW1haWwiOiJoYXJhbGRAZXNwaW5hZ2FyLnNlIiwiaWF0IjoxNjc2OTg3NjI1LCJleHAiOjE2NzcwMDIwMjV9.QMN5N6ibWWAGpcAV8tTYsxJkgR6J8E-RHUyrdotoW4U",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://brainy-crab-cowboy-boots.cyclic.app/photos/3",
+					"protocol": "https",
+					"host": [
+						"brainy-crab-cowboy-boots",
+						"cyclic",
+						"app"
+					],
+					"path": [
+						"photos",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PATCH /photos/:photoId",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsImZpcnN0X25hbWUiOiJoYXJhbGQiLCJsYXN0X25hbWUiOiJoZW5yaWtzc29uIiwiZW1haWwiOiJoYXJhbGRAZXNwaW5hZ2FyLnNlIiwiaWF0IjoxNjc2OTg3NjI1LCJleHAiOjE2NzcwMDIwMjV9.QMN5N6ibWWAGpcAV8tTYsxJkgR6J8E-RHUyrdotoW4U",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"title\": \"PATCHED Confetti Photo #13134646\",\n  \"url\": \"https://images.unsplash.com/photo-1492684223066-81342ee5ff30\",\n  \"comment\": \"Confetti\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://brainy-crab-cowboy-boots.cyclic.app/photos/2",
+					"protocol": "https",
+					"host": [
+						"brainy-crab-cowboy-boots",
+						"cyclic",
+						"app"
+					],
+					"path": [
+						"photos",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE /photos/:photoId",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsImZpcnN0X25hbWUiOiJoYXJhbGQiLCJsYXN0X25hbWUiOiJoZW5yaWtzc29uIiwiZW1haWwiOiJoYXJhbGRAZXNwaW5hZ2FyLnNlIiwiaWF0IjoxNjc2OTg3NjI1LCJleHAiOjE2NzcwMDIwMjV9.QMN5N6ibWWAGpcAV8tTYsxJkgR6J8E-RHUyrdotoW4U",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://brainy-crab-cowboy-boots.cyclic.app/photos/2",
+					"protocol": "https",
+					"host": [
+						"brainy-crab-cowboy-boots",
+						"cyclic",
+						"app"
+					],
+					"path": [
+						"photos",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST /album",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsImZpcnN0X25hbWUiOiJoYXJhbGQiLCJsYXN0X25hbWUiOiJoZW5yaWtzc29uIiwiZW1haWwiOiJoYXJhbGRAZXNwaW5hZ2FyLnNlIiwiaWF0IjoxNjc2OTg3NjI1LCJleHAiOjE2NzcwMDIwMjV9.QMN5N6ibWWAGpcAV8tTYsxJkgR6J8E-RHUyrdotoW4U",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"title\": \"Best album EVER 3\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://brainy-crab-cowboy-boots.cyclic.app/albums",
+					"protocol": "https",
+					"host": [
+						"brainy-crab-cowboy-boots",
+						"cyclic",
+						"app"
+					],
+					"path": [
+						"albums"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /albums",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsImZpcnN0X25hbWUiOiJoYXJhbGQiLCJsYXN0X25hbWUiOiJoZW5yaWtzc29uIiwiZW1haWwiOiJoYXJhbGRAZXNwaW5hZ2FyLnNlIiwiaWF0IjoxNjc2OTg3NjI1LCJleHAiOjE2NzcwMDIwMjV9.QMN5N6ibWWAGpcAV8tTYsxJkgR6J8E-RHUyrdotoW4U",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://brainy-crab-cowboy-boots.cyclic.app/albums",
+					"protocol": "https",
+					"host": [
+						"brainy-crab-cowboy-boots",
+						"cyclic",
+						"app"
+					],
+					"path": [
+						"albums"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /albums/:albumId",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsImZpcnN0X25hbWUiOiJoYXJhbGQiLCJsYXN0X25hbWUiOiJoZW5yaWtzc29uIiwiZW1haWwiOiJoYXJhbGRAZXNwaW5hZ2FyLnNlIiwiaWF0IjoxNjc2OTg3NjI1LCJleHAiOjE2NzcwMDIwMjV9.QMN5N6ibWWAGpcAV8tTYsxJkgR6J8E-RHUyrdotoW4U",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://brainy-crab-cowboy-boots.cyclic.app/albums/2",
+					"protocol": "https",
+					"host": [
+						"brainy-crab-cowboy-boots",
+						"cyclic",
+						"app"
+					],
+					"path": [
+						"albums",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PATCH /albums/:albumId",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsImZpcnN0X25hbWUiOiJoYXJhbGQiLCJsYXN0X25hbWUiOiJoZW5yaWtzc29uIiwiZW1haWwiOiJoYXJhbGRAZXNwaW5hZ2FyLnNlIiwiaWF0IjoxNjc2OTg3NjI1LCJleHAiOjE2NzcwMDIwMjV9.QMN5N6ibWWAGpcAV8tTYsxJkgR6J8E-RHUyrdotoW4U",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"title\": \"patch album\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://brainy-crab-cowboy-boots.cyclic.app/albums/1",
+					"protocol": "https",
+					"host": [
+						"brainy-crab-cowboy-boots",
+						"cyclic",
+						"app"
+					],
+					"path": [
+						"albums",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE /albums/:albumId",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsImZpcnN0X25hbWUiOiJoYXJhbGQiLCJsYXN0X25hbWUiOiJoZW5yaWtzc29uIiwiZW1haWwiOiJoYXJhbGRAZXNwaW5hZ2FyLnNlIiwiaWF0IjoxNjc2OTg3NjI1LCJleHAiOjE2NzcwMDIwMjV9.QMN5N6ibWWAGpcAV8tTYsxJkgR6J8E-RHUyrdotoW4U",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://brainy-crab-cowboy-boots.cyclic.app/albums/1",
+					"protocol": "https",
+					"host": [
+						"brainy-crab-cowboy-boots",
+						"cyclic",
+						"app"
+					],
+					"path": [
+						"albums",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST /albums/:albumId/photos",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsImZpcnN0X25hbWUiOiJoYXJhbGQiLCJsYXN0X25hbWUiOiJoZW5yaWtzc29uIiwiZW1haWwiOiJoYXJhbGRAZXNwaW5hZ2FyLnNlIiwiaWF0IjoxNjc2OTg3NjI1LCJleHAiOjE2NzcwMDIwMjV9.QMN5N6ibWWAGpcAV8tTYsxJkgR6J8E-RHUyrdotoW4U",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"photo_id\": [1, 3]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://brainy-crab-cowboy-boots.cyclic.app/albums/2/photos",
+					"protocol": "https",
+					"host": [
+						"brainy-crab-cowboy-boots",
+						"cyclic",
+						"app"
+					],
+					"path": [
+						"albums",
+						"2",
+						"photos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PATCH /albums/:albumId/photos",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsImZpcnN0X25hbWUiOiJoYXJhbGQiLCJsYXN0X25hbWUiOiJoZW5yaWtzc29uIiwiZW1haWwiOiJoYXJhbGRAZXNwaW5hZ2FyLnNlIiwiaWF0IjoxNjc2OTg3NjI1LCJleHAiOjE2NzcwMDIwMjV9.QMN5N6ibWWAGpcAV8tTYsxJkgR6J8E-RHUyrdotoW4U",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"photo_id\": 1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://brainy-crab-cowboy-boots.cyclic.app/albums/2/photos",
+					"protocol": "https",
+					"host": [
+						"brainy-crab-cowboy-boots",
+						"cyclic",
+						"app"
+					],
+					"path": [
+						"albums",
+						"2",
+						"photos"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
