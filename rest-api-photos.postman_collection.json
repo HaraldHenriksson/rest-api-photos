@@ -1,7 +1,7 @@
 {
 	"info": {
-		"_postman_id": "a2fded9c-c473-4cad-a098-abcfd1066c90",
-		"name": "rest-api-photos cyclic/clever cloud",
+		"_postman_id": "ca3ab9ab-ae2a-4a2d-a3f5-f235da61d1a5",
+		"name": "rest-api-photos",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "24955540"
 	},
@@ -13,7 +13,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"email\": \"harald@espinagar.se\",\n  \"password\": \"mittlösen\",\n  \"first_name\": \"harald\",\n  \"last_name\": \"henriksson\"\n}",
+					"raw": "{\n  \"email\": \"jn@badcamsdfsdrasdasdffaphy.com\",\n  \"password\": \"newpw1\",\n  \"first_name\": \"Johan\",\n  \"last_name\": \"Nordström\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -21,13 +21,12 @@
 					}
 				},
 				"url": {
-					"raw": "https://brainy-crab-cowboy-boots.cyclic.app/register",
-					"protocol": "https",
+					"raw": "http://localhost:3000/register",
+					"protocol": "http",
 					"host": [
-						"brainy-crab-cowboy-boots",
-						"cyclic",
-						"app"
+						"localhost"
 					],
+					"port": "3000",
 					"path": [
 						"register"
 					]
@@ -42,7 +41,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"email\": \"harald@espinagar.se\",\n  \"password\": \"mittlösen\"\n}",
+					"raw": "{\n  \"email\": \"jn@badcamsdfsdrasdasdffaphy.com\",\n  \"password\": \"newpw1\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -50,13 +49,12 @@
 					}
 				},
 				"url": {
-					"raw": "https://brainy-crab-cowboy-boots.cyclic.app/login",
-					"protocol": "https",
+					"raw": "http://localhost:3000/login",
+					"protocol": "http",
 					"host": [
-						"brainy-crab-cowboy-boots",
-						"cyclic",
-						"app"
+						"localhost"
 					],
+					"port": "3000",
 					"path": [
 						"login"
 					]
@@ -72,7 +70,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsImZpcnN0X25hbWUiOiJoYXJhbGQiLCJsYXN0X25hbWUiOiJoZW5yaWtzc29uIiwiZW1haWwiOiJoYXJhbGRAZXNwaW5hZ2FyLnNlIiwiaWF0IjoxNjc2OTg3NjA5LCJleHAiOjE2NzcwMDIwMDl9.ywdd6tezpqC90zGrtAln1nzWKqeK3NLdSc4HzZwUWKE",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjUsImZpcnN0X25hbWUiOiJKb2hhbiIsImxhc3RfbmFtZSI6Ik5vcmRzdHLDtm0iLCJlbWFpbCI6ImpuQGJhZGNhbXNkZnNkcmFzZGFzZGZmYXBoeS5jb20iLCJpYXQiOjE2ODA2MTcyOTUsImV4cCI6MTY4MDYzMTY5NX0.IB591DuJWOBePN0xKLA98mMKI3wXalTv2REQXT3IEzo",
 							"type": "string"
 						}
 					]
@@ -89,13 +87,12 @@
 					}
 				},
 				"url": {
-					"raw": "https://brainy-crab-cowboy-boots.cyclic.app/refresh",
-					"protocol": "https",
+					"raw": "http://localhost:3000/refresh",
+					"protocol": "http",
 					"host": [
-						"brainy-crab-cowboy-boots",
-						"cyclic",
-						"app"
+						"localhost"
 					],
+					"port": "3000",
 					"path": [
 						"refresh"
 					]
@@ -111,7 +108,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsImZpcnN0X25hbWUiOiJoYXJhbGQiLCJsYXN0X25hbWUiOiJoZW5yaWtzc29uIiwiZW1haWwiOiJoYXJhbGRAZXNwaW5hZ2FyLnNlIiwiaWF0IjoxNjc2OTg3NjI1LCJleHAiOjE2NzcwMDIwMjV9.QMN5N6ibWWAGpcAV8tTYsxJkgR6J8E-RHUyrdotoW4U",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjUsImZpcnN0X25hbWUiOiJKb2hhbiIsImxhc3RfbmFtZSI6Ik5vcmRzdHLDtm0iLCJlbWFpbCI6ImpuQGJhZGNhbXNkZnNkcmFzZGFzZGZmYXBoeS5jb20iLCJpYXQiOjE2ODA2MTczMDksImV4cCI6MTY4MDYzMTcwOX0.kFRd1-p1rDQAZJA58VWWGk3qotevI4ZDcOxMN4y00tU",
 							"type": "string"
 						}
 					]
@@ -120,7 +117,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"title\": \"Confetti asdf #1\",\n  \"url\": \"https://images.unsplash.com/photo-1492684223066-81342ee5ff30\",\n  \"comment\": \"Confetti\",\n  \"userId\": 3\n}",
+					"raw": "{\n  \"title\": \"Delete photo bugg #1\",\n  \"url\": \"https://images.unsplash.com/photo-1492684223066-81342ee5ff30\",\n  \"comment\": \"Confetti\",\n  \"userId\": 3\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -128,13 +125,12 @@
 					}
 				},
 				"url": {
-					"raw": "https://brainy-crab-cowboy-boots.cyclic.app/photos",
-					"protocol": "https",
+					"raw": "http://localhost:3000/photos",
+					"protocol": "http",
 					"host": [
-						"brainy-crab-cowboy-boots",
-						"cyclic",
-						"app"
+						"localhost"
 					],
+					"port": "3000",
 					"path": [
 						"photos"
 					]
@@ -153,7 +149,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsImZpcnN0X25hbWUiOiJoYXJhbGQiLCJsYXN0X25hbWUiOiJoZW5yaWtzc29uIiwiZW1haWwiOiJoYXJhbGRAZXNwaW5hZ2FyLnNlIiwiaWF0IjoxNjc2OTg3NjI1LCJleHAiOjE2NzcwMDIwMjV9.QMN5N6ibWWAGpcAV8tTYsxJkgR6J8E-RHUyrdotoW4U",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjUsImZpcnN0X25hbWUiOiJKb2hhbiIsImxhc3RfbmFtZSI6Ik5vcmRzdHLDtm0iLCJlbWFpbCI6ImpuQGJhZGNhbXNkZnNkcmFzZGFzZGZmYXBoeS5jb20iLCJpYXQiOjE2ODA2ODgxNTgsImV4cCI6MTY4MDcwMjU1OH0.ALtUmyW24lcrFVfNXV_wgnHrjOf4e48kEVfq1cn2TlU",
 							"type": "string"
 						}
 					]
@@ -170,13 +166,12 @@
 					}
 				},
 				"url": {
-					"raw": "https://brainy-crab-cowboy-boots.cyclic.app/photos",
-					"protocol": "https",
+					"raw": "http://localhost:3000/photos",
+					"protocol": "http",
 					"host": [
-						"brainy-crab-cowboy-boots",
-						"cyclic",
-						"app"
+						"localhost"
 					],
+					"port": "3000",
 					"path": [
 						"photos"
 					]
@@ -195,7 +190,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsImZpcnN0X25hbWUiOiJoYXJhbGQiLCJsYXN0X25hbWUiOiJoZW5yaWtzc29uIiwiZW1haWwiOiJoYXJhbGRAZXNwaW5hZ2FyLnNlIiwiaWF0IjoxNjc2OTg3NjI1LCJleHAiOjE2NzcwMDIwMjV9.QMN5N6ibWWAGpcAV8tTYsxJkgR6J8E-RHUyrdotoW4U",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjE4LCJmaXJzdF9uYW1lIjoiSm9oYW4iLCJsYXN0X25hbWUiOiJOb3Jkc3Ryw7ZtIiwiZW1haWwiOiJqbkBiYWRjYW1zZGZzZHJhc2RmYXBoeS5jb20iLCJpYXQiOjE2NzY4OTgzNjMsImV4cCI6MTY3NjkxMjc2M30.IXheXiNKCFihNvKBVarXhLGM6wr_su6DltdaPIgEFrY",
 							"type": "string"
 						}
 					]
@@ -212,30 +207,29 @@
 					}
 				},
 				"url": {
-					"raw": "https://brainy-crab-cowboy-boots.cyclic.app/photos/3",
-					"protocol": "https",
+					"raw": "http://localhost:3000/photos/41",
+					"protocol": "http",
 					"host": [
-						"brainy-crab-cowboy-boots",
-						"cyclic",
-						"app"
+						"localhost"
 					],
+					"port": "3000",
 					"path": [
 						"photos",
-						"3"
+						"41"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "PATCH /photos/:photoId",
+			"name": "GET /photos/:photoId",
 			"request": {
 				"auth": {
 					"type": "bearer",
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsImZpcnN0X25hbWUiOiJoYXJhbGQiLCJsYXN0X25hbWUiOiJoZW5yaWtzc29uIiwiZW1haWwiOiJoYXJhbGRAZXNwaW5hZ2FyLnNlIiwiaWF0IjoxNjc2OTg3NjI1LCJleHAiOjE2NzcwMDIwMjV9.QMN5N6ibWWAGpcAV8tTYsxJkgR6J8E-RHUyrdotoW4U",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjE1LCJmaXJzdF9uYW1lIjoiSm9oYW4iLCJsYXN0X25hbWUiOiJOb3Jkc3Ryw7ZtIiwiZW1haWwiOiJqbkBiYWRjYW1lc2RmcmFzZHJhcGh5LmNvbSIsImlhdCI6MTY3NjQ1NTA3NywiZXhwIjoxNjc2NDY5NDc3fQ.p-IDT6OFtMl0Ihor0El0Cx_6N5m2A6hBvCTXG8-gak4",
 							"type": "string"
 						}
 					]
@@ -244,7 +238,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"title\": \"PATCHED Confetti Photo #13134646\",\n  \"url\": \"https://images.unsplash.com/photo-1492684223066-81342ee5ff30\",\n  \"comment\": \"Confetti\"\n}",
+					"raw": "{\n  \"title\": \"Confetti Photo #13134646\",\n  \"url\": \"https://images.unsplash.com/photo-1492684223066-81342ee5ff30\",\n  \"comment\": \"Confetti\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -252,16 +246,15 @@
 					}
 				},
 				"url": {
-					"raw": "https://brainy-crab-cowboy-boots.cyclic.app/photos/2",
-					"protocol": "https",
+					"raw": "http://localhost:3000/photos/23",
+					"protocol": "http",
 					"host": [
-						"brainy-crab-cowboy-boots",
-						"cyclic",
-						"app"
+						"localhost"
 					],
+					"port": "3000",
 					"path": [
 						"photos",
-						"2"
+						"23"
 					]
 				}
 			},
@@ -275,7 +268,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsImZpcnN0X25hbWUiOiJoYXJhbGQiLCJsYXN0X25hbWUiOiJoZW5yaWtzc29uIiwiZW1haWwiOiJoYXJhbGRAZXNwaW5hZ2FyLnNlIiwiaWF0IjoxNjc2OTg3NjI1LCJleHAiOjE2NzcwMDIwMjV9.QMN5N6ibWWAGpcAV8tTYsxJkgR6J8E-RHUyrdotoW4U",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjE4LCJmaXJzdF9uYW1lIjoiSm9oYW4iLCJsYXN0X25hbWUiOiJOb3Jkc3Ryw7ZtIiwiZW1haWwiOiJqbkBiYWRjYW1zZGZzZHJhc2RmYXBoeS5jb20iLCJpYXQiOjE2NzY4OTgzNjMsImV4cCI6MTY3NjkxMjc2M30.IXheXiNKCFihNvKBVarXhLGM6wr_su6DltdaPIgEFrY",
 							"type": "string"
 						}
 					]
@@ -292,16 +285,15 @@
 					}
 				},
 				"url": {
-					"raw": "https://brainy-crab-cowboy-boots.cyclic.app/photos/2",
-					"protocol": "https",
+					"raw": "http://localhost:3000/photos/47",
+					"protocol": "http",
 					"host": [
-						"brainy-crab-cowboy-boots",
-						"cyclic",
-						"app"
+						"localhost"
 					],
+					"port": "3000",
 					"path": [
 						"photos",
-						"2"
+						"47"
 					]
 				}
 			},
@@ -315,7 +307,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsImZpcnN0X25hbWUiOiJoYXJhbGQiLCJsYXN0X25hbWUiOiJoZW5yaWtzc29uIiwiZW1haWwiOiJoYXJhbGRAZXNwaW5hZ2FyLnNlIiwiaWF0IjoxNjc2OTg3NjI1LCJleHAiOjE2NzcwMDIwMjV9.QMN5N6ibWWAGpcAV8tTYsxJkgR6J8E-RHUyrdotoW4U",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjUsImZpcnN0X25hbWUiOiJKb2hhbiIsImxhc3RfbmFtZSI6Ik5vcmRzdHLDtm0iLCJlbWFpbCI6ImpuQGJhZGNhbXNkZnNkcmFzZGFzZGZmYXBoeS5jb20iLCJpYXQiOjE2ODA2MTczMDksImV4cCI6MTY4MDYzMTcwOX0.kFRd1-p1rDQAZJA58VWWGk3qotevI4ZDcOxMN4y00tU",
 							"type": "string"
 						}
 					]
@@ -324,7 +316,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"title\": \"Best album EVER 3\"\n}",
+					"raw": "{\n  \"title\": \"NeWWe\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -332,13 +324,12 @@
 					}
 				},
 				"url": {
-					"raw": "https://brainy-crab-cowboy-boots.cyclic.app/albums",
-					"protocol": "https",
+					"raw": "http://localhost:3000/albums",
+					"protocol": "http",
 					"host": [
-						"brainy-crab-cowboy-boots",
-						"cyclic",
-						"app"
+						"localhost"
 					],
+					"port": "3000",
 					"path": [
 						"albums"
 					]
@@ -357,7 +348,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsImZpcnN0X25hbWUiOiJoYXJhbGQiLCJsYXN0X25hbWUiOiJoZW5yaWtzc29uIiwiZW1haWwiOiJoYXJhbGRAZXNwaW5hZ2FyLnNlIiwiaWF0IjoxNjc2OTg3NjI1LCJleHAiOjE2NzcwMDIwMjV9.QMN5N6ibWWAGpcAV8tTYsxJkgR6J8E-RHUyrdotoW4U",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjUsImZpcnN0X25hbWUiOiJKb2hhbiIsImxhc3RfbmFtZSI6Ik5vcmRzdHLDtm0iLCJlbWFpbCI6ImpuQGJhZGNhbXNkZnNkcmFzZGFzZGZmYXBoeS5jb20iLCJpYXQiOjE2ODA2ODgxNTgsImV4cCI6MTY4MDcwMjU1OH0.ALtUmyW24lcrFVfNXV_wgnHrjOf4e48kEVfq1cn2TlU",
 							"type": "string"
 						}
 					]
@@ -374,13 +365,12 @@
 					}
 				},
 				"url": {
-					"raw": "https://brainy-crab-cowboy-boots.cyclic.app/albums",
-					"protocol": "https",
+					"raw": "http://localhost:3000/albums",
+					"protocol": "http",
 					"host": [
-						"brainy-crab-cowboy-boots",
-						"cyclic",
-						"app"
+						"localhost"
 					],
+					"port": "3000",
 					"path": [
 						"albums"
 					]
@@ -399,7 +389,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsImZpcnN0X25hbWUiOiJoYXJhbGQiLCJsYXN0X25hbWUiOiJoZW5yaWtzc29uIiwiZW1haWwiOiJoYXJhbGRAZXNwaW5hZ2FyLnNlIiwiaWF0IjoxNjc2OTg3NjI1LCJleHAiOjE2NzcwMDIwMjV9.QMN5N6ibWWAGpcAV8tTYsxJkgR6J8E-RHUyrdotoW4U",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjUsImZpcnN0X25hbWUiOiJKb2hhbiIsImxhc3RfbmFtZSI6Ik5vcmRzdHLDtm0iLCJlbWFpbCI6ImpuQGJhZGNhbXNkZnNkcmFzZGFzZGZmYXBoeS5jb20iLCJpYXQiOjE2ODA2ODgxNTgsImV4cCI6MTY4MDcwMjU1OH0.ALtUmyW24lcrFVfNXV_wgnHrjOf4e48kEVfq1cn2TlU",
 							"type": "string"
 						}
 					]
@@ -416,16 +406,15 @@
 					}
 				},
 				"url": {
-					"raw": "https://brainy-crab-cowboy-boots.cyclic.app/albums/2",
-					"protocol": "https",
+					"raw": "http://localhost:3000/albums/7",
+					"protocol": "http",
 					"host": [
-						"brainy-crab-cowboy-boots",
-						"cyclic",
-						"app"
+						"localhost"
 					],
+					"port": "3000",
 					"path": [
 						"albums",
-						"2"
+						"7"
 					]
 				}
 			},
@@ -439,7 +428,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsImZpcnN0X25hbWUiOiJoYXJhbGQiLCJsYXN0X25hbWUiOiJoZW5yaWtzc29uIiwiZW1haWwiOiJoYXJhbGRAZXNwaW5hZ2FyLnNlIiwiaWF0IjoxNjc2OTg3NjI1LCJleHAiOjE2NzcwMDIwMjV9.QMN5N6ibWWAGpcAV8tTYsxJkgR6J8E-RHUyrdotoW4U",
+							"value": "{{token}}",
 							"type": "string"
 						}
 					]
@@ -448,7 +437,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"title\": \"patch album\"\n}",
+					"raw": "{\n  \"title\": \"patch\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -456,16 +445,15 @@
 					}
 				},
 				"url": {
-					"raw": "https://brainy-crab-cowboy-boots.cyclic.app/albums/1",
-					"protocol": "https",
+					"raw": "http://localhost:3000/albums/8",
+					"protocol": "http",
 					"host": [
-						"brainy-crab-cowboy-boots",
-						"cyclic",
-						"app"
+						"localhost"
 					],
+					"port": "3000",
 					"path": [
 						"albums",
-						"1"
+						"8"
 					]
 				}
 			},
@@ -479,7 +467,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsImZpcnN0X25hbWUiOiJoYXJhbGQiLCJsYXN0X25hbWUiOiJoZW5yaWtzc29uIiwiZW1haWwiOiJoYXJhbGRAZXNwaW5hZ2FyLnNlIiwiaWF0IjoxNjc2OTg3NjI1LCJleHAiOjE2NzcwMDIwMjV9.QMN5N6ibWWAGpcAV8tTYsxJkgR6J8E-RHUyrdotoW4U",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjE4LCJmaXJzdF9uYW1lIjoiSm9oYW4iLCJsYXN0X25hbWUiOiJOb3Jkc3Ryw7ZtIiwiZW1haWwiOiJqbkBiYWRjYW1zZGZzZHJhc2RmYXBoeS5jb20iLCJpYXQiOjE2NzY4OTgzNjMsImV4cCI6MTY3NjkxMjc2M30.IXheXiNKCFihNvKBVarXhLGM6wr_su6DltdaPIgEFrY",
 							"type": "string"
 						}
 					]
@@ -496,16 +484,15 @@
 					}
 				},
 				"url": {
-					"raw": "https://brainy-crab-cowboy-boots.cyclic.app/albums/1",
-					"protocol": "https",
+					"raw": "http://localhost:3000/albums/13",
+					"protocol": "http",
 					"host": [
-						"brainy-crab-cowboy-boots",
-						"cyclic",
-						"app"
+						"localhost"
 					],
+					"port": "3000",
 					"path": [
 						"albums",
-						"1"
+						"13"
 					]
 				}
 			},
@@ -519,7 +506,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsImZpcnN0X25hbWUiOiJoYXJhbGQiLCJsYXN0X25hbWUiOiJoZW5yaWtzc29uIiwiZW1haWwiOiJoYXJhbGRAZXNwaW5hZ2FyLnNlIiwiaWF0IjoxNjc2OTg3NjI1LCJleHAiOjE2NzcwMDIwMjV9.QMN5N6ibWWAGpcAV8tTYsxJkgR6J8E-RHUyrdotoW4U",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjUsImZpcnN0X25hbWUiOiJKb2hhbiIsImxhc3RfbmFtZSI6Ik5vcmRzdHLDtm0iLCJlbWFpbCI6ImpuQGJhZGNhbXNkZnNkcmFzZGFzZGZmYXBoeS5jb20iLCJpYXQiOjE2ODA2ODgxNTgsImV4cCI6MTY4MDcwMjU1OH0.ALtUmyW24lcrFVfNXV_wgnHrjOf4e48kEVfq1cn2TlU",
 							"type": "string"
 						}
 					]
@@ -528,7 +515,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"photo_id\": [1, 3]\n}",
+					"raw": "{\n  \"photo_id\": 7\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -536,16 +523,15 @@
 					}
 				},
 				"url": {
-					"raw": "https://brainy-crab-cowboy-boots.cyclic.app/albums/2/photos",
-					"protocol": "https",
+					"raw": "http://localhost:3000/albums/7/photos",
+					"protocol": "http",
 					"host": [
-						"brainy-crab-cowboy-boots",
-						"cyclic",
-						"app"
+						"localhost"
 					],
+					"port": "3000",
 					"path": [
 						"albums",
-						"2",
+						"7",
 						"photos"
 					]
 				}
@@ -553,23 +539,23 @@
 			"response": []
 		},
 		{
-			"name": "PATCH /albums/:albumId/photos",
+			"name": "POST /albums/:albumId/photos Copy",
 			"request": {
 				"auth": {
 					"type": "bearer",
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsImZpcnN0X25hbWUiOiJoYXJhbGQiLCJsYXN0X25hbWUiOiJoZW5yaWtzc29uIiwiZW1haWwiOiJoYXJhbGRAZXNwaW5hZ2FyLnNlIiwiaWF0IjoxNjc2OTg3NjI1LCJleHAiOjE2NzcwMDIwMjV9.QMN5N6ibWWAGpcAV8tTYsxJkgR6J8E-RHUyrdotoW4U",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjUsImZpcnN0X25hbWUiOiJKb2hhbiIsImxhc3RfbmFtZSI6Ik5vcmRzdHLDtm0iLCJlbWFpbCI6ImpuQGJhZGNhbXNkZnNkcmFzZGFzZGZmYXBoeS5jb20iLCJpYXQiOjE2ODA2ODgxNTgsImV4cCI6MTY4MDcwMjU1OH0.ALtUmyW24lcrFVfNXV_wgnHrjOf4e48kEVfq1cn2TlU",
 							"type": "string"
 						}
 					]
 				},
-				"method": "PATCH",
+				"method": "DELETE",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"photo_id\": 1\n}",
+					"raw": "",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -577,17 +563,17 @@
 					}
 				},
 				"url": {
-					"raw": "https://brainy-crab-cowboy-boots.cyclic.app/albums/2/photos",
-					"protocol": "https",
+					"raw": "http://localhost:3000/albums/7/photos/7",
+					"protocol": "http",
 					"host": [
-						"brainy-crab-cowboy-boots",
-						"cyclic",
-						"app"
+						"localhost"
 					],
+					"port": "3000",
 					"path": [
 						"albums",
-						"2",
-						"photos"
+						"7",
+						"photos",
+						"7"
 					]
 				}
 			},

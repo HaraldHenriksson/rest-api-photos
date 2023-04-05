@@ -11,12 +11,12 @@ import prisma from '../prisma'
 export const postAlbum = async (req: Request, res: Response) => {
 
     const validationErrors = validationResult(req)
-	if (!validationErrors.isEmpty()) {
-		return res.status(400).send({
-			status: "fail",
-			data: validationErrors.array(),
-		})
-	}
+    if (!validationErrors.isEmpty()) {
+        return res.status(400).send({
+            status: "fail",
+            data: validationErrors.array(),
+        })
+    }
 
     try {
         const album = await createAlbum({
@@ -31,7 +31,7 @@ export const postAlbum = async (req: Request, res: Response) => {
 
     } catch (err) {
         res.status(500).send({ status: "error", message: "Something went wrong" })
-      }
+    }
 
 }
 
@@ -51,13 +51,14 @@ export const getAlbums = async (req: Request, res: Response) => {
                 status: "success",
                 message: "The user does not have any albums."
             })
-        } else { res.send({
-            status: "succes",
-            data: album,
-        })
-    }
+        } else {
+            res.send({
+                status: "succes",
+                data: album,
+            })
+        }
     } catch (err) {
-        res.status(500).send({ message: "Something went wrong"})
+        res.status(500).send({ message: "Something went wrong" })
     }
 }
 
@@ -87,9 +88,9 @@ export const getAlbumsWithId = async (req: Request, res: Response) => {
         res.send({
             status: "success",
             data: album
-            })
+        })
     } catch (err) {
-            res.status(500).send({ message: "Something went wrong"})
+        res.status(500).send({ message: "Something went wrong" })
     }
 }
 
@@ -99,12 +100,12 @@ export const getAlbumsWithId = async (req: Request, res: Response) => {
 export const patchAlbum = async (req: Request, res: Response) => {
 
     const validationErrors = validationResult(req)
-	if (!validationErrors.isEmpty()) {
-		return res.status(400).send({
-			status: "fail",
-			data: validationErrors.array(),
-		})
-	}
+    if (!validationErrors.isEmpty()) {
+        return res.status(400).send({
+            status: "fail",
+            data: validationErrors.array(),
+        })
+    }
     const albumId = Number(req.params.albumId)
 
     try {
@@ -117,7 +118,7 @@ export const patchAlbum = async (req: Request, res: Response) => {
         const album = albums.find(album => album.id === albumId)
 
         if (!album) {
-            return res.status(404).send({ mesage: "Album with the given ID does not exist"})
+            return res.status(404).send({ mesage: "Album with the given ID does not exist" })
         }
 
         const updatedAlbum = await prisma.album.update({
@@ -133,8 +134,8 @@ export const patchAlbum = async (req: Request, res: Response) => {
         })
 
     } catch (err) {
-		return res.status(500).send({ message: "Something went wrong" })
-	}
+        return res.status(500).send({ message: "Something went wrong" })
+    }
 }
 
 /**
@@ -153,7 +154,7 @@ export const destroy = async (req: Request, res: Response) => {
         const album = albums.find(album => album.id === albumId)
 
         if (!album) {
-            return res.status(404).send({ message: "Photo with given ID does not exist"})
+            return res.status(404).send({ message: "Photo with given ID does not exist" })
         }
 
         const photos = await prisma.photo.findMany({
@@ -165,7 +166,7 @@ export const destroy = async (req: Request, res: Response) => {
                 }
             }
         })
-        
+
         const disconnect = photos.map(async photo => {
             await prisma.photo.update({
                 where: {
@@ -180,7 +181,7 @@ export const destroy = async (req: Request, res: Response) => {
                 }
             })
         })
-        
+
         // wait for all disconnect before moving on 
         await Promise.all(disconnect)
 
@@ -196,7 +197,7 @@ export const destroy = async (req: Request, res: Response) => {
         })
 
     } catch (err) {
-        res.status(500).send({ message: "Something went wrong"})
+        res.status(500).send({ message: "Something went wrong" })
     }
 }
 
@@ -206,12 +207,12 @@ export const destroy = async (req: Request, res: Response) => {
 export const addPhoto = async (req: Request, res: Response) => {
 
     const validationErrors = validationResult(req)
-	if (!validationErrors.isEmpty()) {
-		return res.status(400).send({
-			status: "fail",
-			data: validationErrors.array(),
-		})
-	}
+    if (!validationErrors.isEmpty()) {
+        return res.status(400).send({
+            status: "fail",
+            data: validationErrors.array(),
+        })
+    }
 
     let photo_id;
     if (Array.isArray(req.body.photo_id)) {
@@ -234,14 +235,14 @@ export const addPhoto = async (req: Request, res: Response) => {
                 photos: true,
             }
         })
-        
+
         res.send({
             status: "success",
             data: null
         })
 
     } catch (err) {
-        res.status(500).send({ status: "error", message: "something went wrong"})
+        res.status(500).send({ status: "error", message: "something went wrong" })
     }
 }
 
@@ -249,7 +250,9 @@ export const addPhoto = async (req: Request, res: Response) => {
  * Unlink a photo from album
  */
 export const removePhoto = async (req: Request, res: Response) => {
-    const photo_id = req.body.photo_id;
+    const photo_id = Number(req.params.photoId)
+
+    console.log('Before Prisma call:', req.params.albumId, photo_id)
 
     try {
         const result = await prisma.album.update({
@@ -264,13 +267,13 @@ export const removePhoto = async (req: Request, res: Response) => {
                 }
             }
         })
-        
+
         res.send({
             status: "success",
             data: null
         })
-        
+
     } catch (err) {
-        res.status(500).send({ status: "error", message: "something went wrong"})
+        res.status(500).send({ status: "error", message: "something went wrong" })
     }
 }
